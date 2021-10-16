@@ -40,6 +40,8 @@ from object_detection.utils import object_detection_evaluation
 from object_detection.utils import ops
 from object_detection.utils import shape_utils
 from object_detection.utils import visualization_utils as vis_utils
+from object_detection.utils import custom_object_detection_evaluation
+from object_detection.utils import custom_top3_object_detection_evaluation
 
 EVAL_KEYPOINT_METRIC = 'coco_keypoint_metrics'
 
@@ -74,6 +76,10 @@ EVAL_METRICS_CLASS_DICT = {
         object_detection_evaluation.WeightedPascalInstanceSegmentationEvaluator,
     'oid_V2_detection_metrics':
         object_detection_evaluation.OpenImagesDetectionEvaluator,
+    'custom_oid_V2_detection_metrics':
+        custom_object_detection_evaluation.OpenImagesDetectionEvaluator_Customized,
+    'custom_top3_oid_V2_detection_metrics':
+        custom_top3_object_detection_evaluation.OpenImagesDetectionEvaluator_Customized_Top3,
 }
 
 EVAL_DEFAULT_METRIC = 'coco_detection_metrics'

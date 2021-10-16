@@ -1,0 +1,25 @@
+{
+    // Verwendet IntelliSense zum Ermitteln möglicher Attribute.
+    // Zeigen Sie auf vorhandene Attribute, um die zugehörigen Beschreibungen anzuzeigen.
+    // Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Aktuelle Datei",
+            "type": "python",
+            "request": "launch",
+            "program": "~/aim-food-classification/models/research/object_detection/model_main_tf2.py",
+            "console": "integratedTerminal",
+            "args": [ 
+                      "--pipeline_config_path",  
+                      "/home/gagoit00/aim-food-classification/object_detection/model/2000/eval.config",
+                      "--model_dir", 
+                      "/home/gagoit00/aim-food-classification/object_detection/model/2000/checkpoints",
+                      "--checkpoint_dir", 
+                      "/home/gagoit00/aim-food-classification/object_detection/model/2000/checkpoints",
+                      "--run_once",
+                      "alsologtostderr"
+                    ]
+        }
+    ]
+}
