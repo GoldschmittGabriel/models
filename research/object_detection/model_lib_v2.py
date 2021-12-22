@@ -781,6 +781,16 @@ def prepare_eval_dict(detections, groundtruth, features):
       tf.argmax(groundtruth_classes_one_hot, axis=2) + label_id_offset)
   groundtruth[fields.InputDataFields.groundtruth_classes] = groundtruth_classes
 
+  groundtruth_classes_temp = groundtruth_classes.numpy()
+
+  for i_axis1 in range(len(groundtruth_classes_one_hot)):
+      for i_axis2 in range(len(groundtruth_classes_one_hot[i_axis1])):
+          if not groundtruth_classes_one_hot[i_axis1][i_axis2].numpy().any():
+              groundtruth_classes_temp[i_axis1][i_axis2] = 0
+
+  groundtruth_classes = tf.convert_to_tensor(groundtruth_classes_temp)
+
+
   label_id_offset_paddings = tf.constant([[0, 0], [1, 0]])
   if fields.InputDataFields.groundtruth_verified_neg_classes in groundtruth:
     groundtruth[
